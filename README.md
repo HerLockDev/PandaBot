@@ -1,6 +1,6 @@
-# GroupMenter
+# Emilia Menter
 
-An PowerFull Group Manager Bot. Written In Pytelethon.
+Güçlü Bir Grup Yöneticisi Botu. Telethon'da Yazıldı.
 
 <p align="center">
   <img src="https://telegra.ph/file/fd28c4d14220d0beb3ba1.jpg">
@@ -11,30 +11,29 @@ An PowerFull Group Manager Bot. Written In Pytelethon.
      <img height="30px" src="http://forthebadge.com/images/badges/made-with-python.svg">
   </a>
 
-[![Telegram](https://img.shields.io/badge/Channel-003245?style=flat&labelColor=224242&logoColor=white&for-the-badge&logo=telegram)](https://t.me/GroupMenterUpdates)&nbsp; [![Telegram](https://img.shields.io/badge/Support-003245?style=flat&labelColor=224242&logoColor=white&for-the-badge&logo=telegram)](https://t.me/GroupMenterGroup)&nbsp;
+[![Telegram](https://img.shields.io/badge/Channel-003245?style=flat&labelColor=224242&logoColor=white&for-the-badge&logo=telegram)](https://t.me/AnossaBots)&nbsp; [![Telegram](https://img.shields.io/badge/Support-003245?style=flat&labelColor=224242&logoColor=white&for-the-badge&logo=telegram)](https://t.me/AnossaninGrubu)&nbsp;
 
 ##### Info
 
-• A modular Telegram Python bot running on python3.
+•Python3 üzerinde çalışan modüler bir Telegram Python botu.
 
-• Can be found on telegram as [GroupMenter](https://t.me/GroupMenterRoBot).
+• Telgrafta [GroupMenter](https://t.me/MissEmilia_Robot) olarak bulunabilir.
 
-• Alternatively, find me on telegram! (Keep all support questions in the support chat, where more people can help you.)
+• Alternatif olarak, beni Telegramdan bulun! (Tüm destek sorularını, daha fazla kişinin size yardımcı olabileceği destek sohbetinde saklayın.)
 
-• You can also join our support group [here](https://t.me/GroupMenterGroup)!
+• Ayrıca [Buradan](https://t.me/AnossaninGrubu) destek grubumuza da katılabilirsiniz!
 
-- Anime Theme Bot
-
-### Deploy to heroku 💤
+- Anime Tema Botu
+### Heroku'ya deploy💤
 
 <p align="left">
-  <a href="https://dashboard.heroku.com/new?template=https://github.com/TeamGroupMenter/GroupMenter/">
+  <a href="https://dashboard.heroku.com/new?template=https://github.com/AnossaTG/emiliamenter">
      <img height="30px" src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku">
   </a>
 
 ### Devs 👨🏻‍💻
 
-**[Vivek](https://github.com/Vivek-TP)** ▪ **[Shameel Habeeb](https://github.com/shamilhabeebnelli)** ▪ **[Uvindu Bro](https://github.com/UvinduBro)** ▪ **[Miss-Valentina](https://github.com/Miss-Valentina)** ▪ **[Devil](https://github.com/lucifeermorningstar)**
+**[Vivek](https://github.com/Vivek-TP)** ▪ **[Shameel Habeeb](https://github.com/shamilhabeebnelli)** ▪ **[Uvindu Bro](https://github.com/UvinduBro)** ▪ **[Miss-Valentina](https://github.com/Miss-Valentina)** ▪ **[Devil](https://github.com/lucifeermorningstar)** ▪ ** [Anossa](https://github.com/AnossaTG)**
 
 ### Credits ❤
 <details><summary>All Credits Here</summary>
