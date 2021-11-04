@@ -33,7 +33,7 @@ Güçlü Bir Grup Yöneticisi Botu. Telethon'da Yazıldı.
 
 ### Devs 👨🏻‍💻
 
-**[Vivek](https://github.com/Vivek-TP)** ▪ **[Shameel Habeeb](https://github.com/shamilhabeebnelli)** ▪ **[Uvindu Bro](https://github.com/UvinduBro)** ▪ **[Miss-Valentina](https://github.com/Miss-Valentina)** ▪ **[Devil](https://github.com/lucifeermorningstar)** ▪ ** [Anossa](https://github.com/AnossaTG)**
+**[Vivek](https://github.com/Vivek-TP)** ▪ **[Shameel Habeeb](https://github.com/shamilhabeebnelli)** ▪ **[Uvindu Bro](https://github.com/UvinduBro)** ▪ **[Miss-Valentina](https://github.com/Miss-Valentina)** ▪ **[Devil](https://github.com/lucifeermorningstar)** ▪ **[Anossa](https://github.com/AnossaTG)**
 
 ### Credits ❤
 <details><summary>All Credits Here</summary>
