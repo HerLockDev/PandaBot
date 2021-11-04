@@ -74,16 +74,16 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-Hey there! My name is Group Menter.
-I'm here to help you manage your groups!
+Selam! Benim adım Emilia.
+Gruplarınızı yönetmenize yardımcı olmak için buradayım!
 
-Hit /help to find out more about how to use me to my full potential.
+Beni tam potansiyelime nasıl kullanacağınız hakkında daha fazla bilgi edinmek için /help'e basın.
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ Grubuna Ekle ➕️", url="https://t.me/MissEmilia_Robot?startgroup=true"),
+            text="➕️ Grubuna Ekle ➕️", url="https://t.me/MyEmiliaBot?startgroup=true"),
     ],
     [
         InlineKeyboardButton(text="Güncellemeler", url="https://t.me/AnossaBots"),
