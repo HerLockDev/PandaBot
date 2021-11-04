@@ -17,7 +17,7 @@ db = client["darkuserbot"]
 gbanned = db.gban
 
 def register(**args):
-    """ Registers a new message. """
+    """ Yeni bir mesaj kaydeder. """
     pattern = args.get("pattern", None)
 
     r_pattern = r"^[/!]"
@@ -35,7 +35,7 @@ def register(**args):
 
 
 def chataction(**args):
-    """ Registers chat actions. """
+    """ Sohbet eylemlerini kaydeder. """
 
     def decorator(func):
         telethn.add_event_handler(func, events.ChatAction(**args))
@@ -45,7 +45,7 @@ def chataction(**args):
 
 
 def userupdate(**args):
-    """ Registers user updates. """
+    """ Kullanıcı güncellemelerini kaydeder. """
 
     def decorator(func):
         telethn.add_event_handler(func, events.UserUpdate(**args))
@@ -55,7 +55,7 @@ def userupdate(**args):
 
 
 def inlinequery(**args):
-    """ Registers inline query. """
+    """ Satır içi sorguyu kaydeder. """
     pattern = args.get("pattern", None)
 
     if pattern is not None and not pattern.startswith("(?i)"):
@@ -69,7 +69,7 @@ def inlinequery(**args):
 
 
 def callbackquery(**args):
-    """ Registers inline query. """
+    """ Satır içi sorguyu kaydeder. """
 
     def decorator(func):
         telethn.add_event_handler(func, events.CallbackQuery(**args))
@@ -116,13 +116,13 @@ def bot(**args):
             if check.is_group or check.is_private:
                 pass
             else:
-                print("i don't work in channels")
+                print("kanallarda çalışmıyorum")
                 return
             if check.is_group:
                if check.chat.megagroup:
                   pass
                else:
-                  print("i don't work in small chats")
+                  print("küçük sohbetlerde çalışmıyorum")
                   return
                           
             users = gbanned.find({})
@@ -189,7 +189,7 @@ def load_module(shortname):
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        print("Successfully imported " + shortname)
+        print("Başarıyla içe aktarıldı " + shortname)
     else:
         import importlib
         import GroupMenter.events
@@ -204,7 +204,7 @@ def load_module(shortname):
         mod.logger = logging.getLogger(shortname)
         spec.loader.exec_module(mod)
         sys.modules["GroupMenter.modules." + shortname] = mod
-        print("Successfully imported " + shortname)
+        print("Başarıyla içe aktarıldı " + shortname)
 
 
 path = "GroupMenter/modules/*.py"
