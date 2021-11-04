@@ -1,6 +1,6 @@
 {
-      "name": "Group Menter",
-      "description": "A Complete Pytelethon Version Telegram group management bot.",
+      "name": "Emilia Menter",
+      "description": "Eksiksiz bir Pytelethon Sürümü Telegram grup yönetim botu.",
       "logo": "https://telegra.ph/file/9b212680f21f5f792d08f.jpg",
       "keywords": [
          "telegram",
@@ -9,7 +9,7 @@
          "manager",
          "Group Menter"
       ],   
-   "repository": "https://github.com/TeamGroupMenter/GroupMenter",
+   "repository": "https://github.com/AnossaTG/emiliamenter",
    "addons": [
       {
          "options": {
@@ -20,178 +20,178 @@
    ],
    "env": {
       "TOKEN": {
-         "description": "Your bot token. Get one from @BotFather duh",
+         "description": "Bot jetonunuz. @BotFather'dan bir tane alın.",
          "required": true,
          "value": ""
       },
       "API_ID": {
-         "description": "Get API_ID from my.telegram.org, used for telethon based modules.",
+         "description": "Teleton tabanlı modüller için kullanılan my.telegram.org adresinden API_ID alın.",
          "required": true,
          "value": ""
       },
       "API_HASH": {
-         "description": "Get API_HASH from my.telegram.org, used for telethon based modules.",
+         "description": "Teleton tabanlı modüller için kullanılan my.telegram.org'dan API_HASH alın.",
          "required": true,
          "value": ""
       },    
       "SQLALCHEMY_DATABASE_URI": {
-         "description": "Your postgres sql db, empty this field if you have no idea.",
+         "description": "Postgres sql db'niz, hiçbir fikriniz yoksa bu alanı boşaltın.",
          "required": false,
          "value": "sqldbtype://username:pw@hostname:port/db_name"
       },      
       "OWNER_ID": {
-         "description": "Your user ID as an integer.",
+         "description": "Tam sayı olarak kullanıcı kimliğiniz.",
          "required": true,
          "value": ""
       },
       "BOT_ID": {
-         "description": "Your bot ID.. Use any other bot to get it.",
+         "description": "Bot kimliğiniz.. Onu almak için başka bir bot kullanın.",
          "required": true,
          "value": ""
       },
       "HEROKU_API_KEY": {
-        "description": "Your Heroku API key, get it from 'https://dashboard.heroku.com/account'",
+        "description": "Heroku API anahtarınız, 'https://dashboard.heroku.com/account adresinden alın.'",
         "value": ""
       },
       "HEROKU_APP_NAME": {
-        "description": "Enter the Heroku app name here (Must an exact same name with your input above).",
+        "description": "Heroku uygulamasının adını buraya girin (Yukarıdaki girdiğinizle tam olarak aynı ad olmalıdır).",
         "required": false
       },
       "OWNER_USERNAME": {
-         "description": "Your username without the @",
+         "description": "@ olmadan kullanıcı adınız",
          "value": ""
       },
       "SUPPORT_CHAT": {
-         "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to masha support than consider you made an enemy.",
+         "description": "Kullanıcılarınızın gideceği ve sizi boktan rahatsız edeceği Telegram destek grubu sohbet kullanıcı adınız. Bu, bir düşman olduğunuzu düşünmektense Emilia desteğine mutluluk oluyor.",
          "required": true,
          "value": ""
       },
       "MONGO_DB_URI": {
-         "description": "Required for database connections. cloud.mongodb.com",
+         "description": "Veritabanı bağlantıları için gereklidir. cloud.mongodb.com",
          "required": false,
          "value": ""
       },
       "IBM_WATSON_CRED_URL": {
-         "description": "This is required for the speech to text module. Get your USERNAME from https://console.bluemix.net/docs/services/speech-to-text/getting-started.html",
+         "description": "Bu, konuşmadan metne modülü için gereklidir. USERNAME'inizi https://console.bluemix.net/docs/services/speech-to-text/getting-started.html adresinden alın.",
          "required": false
      },
      "IBM_WATSON_CRED_PASSWORD": {
-        "description": "This is required for the speech to text module. Get your PASSWORD from https://console.bluemix.net/docs/services/speech-to-text/getting-started.html",
+        "description": "Bu, konuşmadan metne modülü için gereklidir. ŞİFRENİZİ https://console.bluemix.net/docs/services/speech-to-text/getting-started.html adresinden alın.",
         "required": false
      },
      "EVENT_LOGS": {
-         "description": "Event logs channel to note down important bot level events, recommend to make this public. ex: '-123456'",
+         "description": "Bot düzeyindeki önemli olayları not etmek için olay günlükleri kanalı, bunu herkese açık hale getirmenizi öneririz. ör: '-123456'",
          "required": true,
          "value": "-123456798"
       },
       "JOIN_LOGGER": {
-         "description": "A channel where bot will print who added it to what group, useful during debugging or spam handling.",
+         "description": "Bot'un onu kimin hangi gruba eklediğini yazdıracağı bir kanal, hata ayıklama veya spam işleme sırasında kullanışlıdır.",
          "required": true,
          "value": "-123456798"
       },      
       "CASH_API_KEY": {
-         "description": "Required for currency converter. Get yours from https://www.alphavantage.co/support/#api-key",
+         "description": "Para birimi dönüştürücü için gereklidir. Sizinkini https://www.alphavantage.co/support/#api-key adresinden alın.",
          "required": true,
          "value": "-xyz"
       },
       "TIME_API_KEY": {
-         "description": "Required for timezone information. Get yours from https://timezonedb.com/api",
+         "description": "Saat dilimi bilgisi için gereklidir. Sizinkini https://timezonedb.com/api adresinden alın",
          "required": true,
          "value": "-xyz"
       },
       "API_OPENWEATHER": {
-        "description": "Get your own APPID from https://api.openweathermap.org/data/2.5/weather",
+        "description": "https://api.openweathermap.org/data/2.5/weather adresinden kendi APPID'nizi alın",
         "value": "",
         "required": false
       },
       "DEV_USERS": {
-         "description": "ID of users who are Devs of your bot (can use /py etc.). If you are a noob and would come and bother Masha support then keep the current ID's here at they are and add yours.",
+         "description": "Botunuzun Geliştiricisi olan kullanıcıların kimliği (/py vb. kullanabilir). Acemiyseniz ve gelip Emilia desteğini rahatsız edecekseniz, mevcut kimlikleri burada olduklarında tutun ve kendinizinkini ekleyin..",
          "required": false,
          "value": ""
       },
       "sw_api": {
-         "description": "Spamwatch API Token, Get one from @SpamWatchBot.",
+         "description": "Spamwatch API Simgesi, @SpamWatchBot'tan bir tane alın.",
          "required": false,
          "value": ""
       }, 
       "STRICT_GBAN": {
-         "description": "Enforce gbans across new groups as well as old groups. When a gbanned user talks, he will be banned.",
+         "description": "Eski grupların yanı sıra yeni gruplarda da gban'ları zorunlu kılın. Gbanlı bir kullanıcı konuştuğunda banlanır.",
          "value": "True"
       },
       "DRAGONS": {
-         "description": "A space separated list of user IDs who you want to assign as sudo users.",
+         "description": "Sudo kullanıcıları olarak atamak istediğiniz kullanıcı kimliklerinin boşlukla ayrılmış listesi.",
          "required": false,
          "value": ""
       },
       "DEMONS": {
-         "description": "A space separated list of user IDs who you wanna assign as support users(gban perms only).",
+         "description": "Destek kullanıcıları olarak atamak istediğiniz kullanıcı kimliklerinin boşlukla ayrılmış listesi (yalnızca gban izinleri).",
          "required": false,
          "value": ""
       },
       "TIGERS": {
-         "description": "A space separated list of user IDs who you wanna assign as tiger users.",
+         "description": "Tiger kullanıcıları olarak atamak istediğiniz kullanıcı kimliklerinin boşlukla ayrılmış listesi.",
          "required": false,
          "value": ""
       },
       "WOLVES": {
-         "description": "A space separated list of user IDs who you want to assign as whitelisted - can't be banned with your bot.",
+         "description": "Beyaz listeye eklemek istediğiniz kullanıcı kimliklerinin boşlukla ayrılmış bir listesi - botunuzla yasaklanamaz.",
          "required": false,
          "value": ""
       },
       "ENV": {
-         "description": "Setting this to ANYTHING will enable environment variables. Leave it as it is",
+         "description": "Bunu ANYTHING ayarlamak, ortam değişkenlerini etkinleştirir. Olduğu gibi bırak",
          "value": "ANYTHING"
       },
       "WEBHOOK": {
-         "description": "Setting this to ANYTHING will enable webhooks. If you dont know how this works leave it as it is",
+         "description": "Bunu ANYTHING olarak ayarlamak web kancalarını etkinleştirir. Bunun nasıl çalıştığını bilmiyorsanız, olduğu gibi bırakın",
          "required": false,
          "value": ""
       },
       "PORT": {
-         "description": "Port to use for your webhooks. Better leave this as it is on heroku",
+         "description": "Web kancalarınız için kullanılacak bağlantı noktası. Bunu heroku'da olduğu gibi bıraksan iyi olur",
          "required": false,
          "value": ""
       },
       "URL": {
-         "description": "The Heroku App URL :-  https://<appname>.herokuapp.com/",
+         "description": "Heroku Uygulaması URL'si :- https://<appname>.herokuapp.com/",
          "required": false,
          "value": ""
       },
       "No_LOAD": {
-         "description": "Dont load these modules cause they shit, space separation",
+         "description": "Bu modülleri yüklemeyin çünkü sıçıyorlar, boşluk ayrımı",
          "required": false,
          "value": "rss"
       }, 
       "BL_CHATS": {
-         "description": "List of chats you want blacklisted.",
+         "description": "Kara listeye alınmasını istediğiniz sohbetlerin listesi.",
          "required": false,
          "value": ""
       },
       "ALLOW_EXCL": {
-         "description": "Set this to True if you want ! to be a command prefix along with /. Recommended is True",
+         "description": "İsterseniz bunu True olarak ayarlayın! / ile birlikte bir komut öneki olmak. Önerilen Doğrudur",
          "value": "True"
       },
       "DONATION_LINK": {
-         "description": "Optional: link where you would like to receive donations. If you are a noob, better leave it linking to paul",
+         "description": "İsteğe bağlı: Bağış almak istediğiniz bağlantı. Acemi isen, onu Paul'e bağlasan iyi olur.",
          "required": false,
          "value": "https://www.paypal.me/vivek_kerala"
       },
       "DEL_CMDS": {
-         "description": "Set this to True if you want to delete command messages from users who don't have the perms to run that command.",
+         "description": "Bu komutu çalıştırma izni olmayan kullanıcılardan gelen komut mesajlarını silmek istiyorsanız bunu True olarak ayarlayın.",
          "value": "True"
       },
       "AI_API_KEY": {
-      "description": "Make your bot talk using Intellivoid's chatbot API, get your key from https://coffeehouse.intellivoid.net/",
+      "description": "Intellivoid'in chatbot API'sini kullanarak botunuzu konuşturun, anahtarınızı https://coffeehouse.intellivoid.net/ adresinden alın. (KAPANDI)",
          "required": false,
          "value": ""
    },      
       "BAN_STICKER": {
-         "description": "ID of the sticker you want to use when banning people.",
+         "description": "Kişileri yasaklarken kullanmak istediğiniz çıkartmanın kimliği.",
          "required": false,
          "value": ""
       },
       "WALL_API": {
-         "description": "Required for wallpaper. Get your's from https://wall.alphacoders.com/",
+         "description": "Duvar kağıdı için gereklidir. Sizinkini https://wall.alphacoders.com/ adresinden alın.",
          "required": false,
          "value": ""
       }
