@@ -57,7 +57,7 @@ async def _(event):
         except IndexError:
             break
     await webevent.edit(
-        "**Search Query:**\n`" + match + "`\n\n**Results:**\n" + msg, link_preview=False
+        "**Arama Sorgusu:**\n`" + match + "`\n\n**Sonuçlar:**\n" + msg, link_preview=False
     )
 
 @register(pattern="^/img (.*)")
@@ -92,7 +92,7 @@ opener.addheaders = [("User-agent", useragent)]
 
 @register(pattern=r"^/reverse(?: |$)(\d*)")
 async def okgoogle(img):
-    """ For .reverse command, Google search images and stickers. """
+    """ .reverse komutu için Google görselleri ve çıkartmaları arayın. """
     if os.path.isfile("okgoogle.png"):
         os.remove("okgoogle.png")
     
@@ -101,15 +101,15 @@ async def okgoogle(img):
         photo = io.BytesIO()
         await tbot.download_media(message, photo)
     else:
-        await img.reply("`Reply to photo or sticker nigger.`")
+        await img.reply("`Fotoğrafa veya çıkartmaya yanıt.`")
         return
 
     if photo:
-        dev = await img.reply("`Processing...`")
+        dev = await img.reply("`İşleme...`")
         try:
             image = Image.open(photo)
         except OSError:
-            await dev.edit("`Unsupported sexuality, most likely.`")
+            await dev.edit("`Desteklenmeyen cinsellik, büyük olasılıkla.`")
             return
         name = "okgoogle.png"
         image.save(name, "PNG")
@@ -122,11 +122,11 @@ async def okgoogle(img):
 
         if response != 400:
             await dev.edit(
-                "`Image successfully uploaded to Google. Maybe.`"
-                "\n`Parsing source now. Maybe.`"
+                "`Resim başarıyla Google'a yüklendi. Belki.`"
+                "\n`Kaynak şimdi ayrıştırılıyor. Belki.`"
             )
         else:
-            await dev.edit("`Google told me to fuck off.`")
+            await dev.edit("`Google bana siktir git dedi XD.`")
             return
 
         os.remove(name)
@@ -135,9 +135,9 @@ async def okgoogle(img):
         imgspage = match["similar_images"]
 
         if guess and imgspage:
-            await dev.edit(f"[{guess}]({fetchUrl})\n\n`Looking for this Image...`")
+            await dev.edit(f"[{guess}]({fetchUrl})\n\n`Bu Resim aranıyor...`")
         else:
-            await dev.edit("`Can't find this piece of shit.`")
+            await dev.edit("`Bu bok parçasını bulamıyorum.`")
             return
 
         if img.pattern_match.group(1):
@@ -158,12 +158,12 @@ async def okgoogle(img):
         except TypeError:
             pass
         await dev.edit(
-            f"[{guess}]({fetchUrl})\n\n[Visually similar images]({imgspage})"
+            f"[{guess}]({fetchUrl})\n\n[Görsel olarak benzer resimler]({imgspage})"
         )
 
 
-async def ParseSauce(googleurl):
-    """Parse/Scrape the HTML code for the info we want."""
+async def ParseSaParsuce(googleurl):
+    """İstediğimiz bilgi için HTML kodunu kazıyın."""
 
     source = opener.open(googleurl).read()
     soup = BeautifulSoup(source, "html.parser")
@@ -249,13 +249,13 @@ async def apk(e):
         app_details = "<a href='" + app_icon + "'>📲&#8203;</a>"
         app_details += " <b>" + app_name + "</b>"
         app_details += (
-            "\n\n<code>Developer :</code> <a href='"
+            "\n\n<code>Geliştirici :</code> <a href='"
             + app_dev_link
             + "'>"
             + app_dev
             + "</a>"
         )
-        app_details += "\n<code>Rating :</code> " + app_rating.replace(
+        app_details += "\n<code>Derecelendirme :</code> " + app_rating.replace(
             "Rated ", "⭐ "
         ).replace(" out of ", "/").replace(" stars", "", 1).replace(
             " stars", "⭐ "
@@ -263,25 +263,25 @@ async def apk(e):
             "five", "5"
         )
         app_details += (
-            "\n<code>Features :</code> <a href='"
+            "\n<code>Özellikler :</code> <a href='"
             + app_link
-            + "'>View in Play Store</a>"
+            + "'>Play Store'da Görüntüle</a>"
         )
         app_details += "\n\n===> GroupMenter <==="
         await e.reply(app_details, link_preview=True, parse_mode="HTML")
     except IndexError:
-        await e.reply("No result found in search. Please enter **Valid app name**")
+        await e.reply("Aramada sonuç bulunamadı. Lütfen **Geçerli uygulama adı** girin")
     except Exception as err:
-        await e.reply("Exception Occured:- " + str(err))
+        await e.reply("Gerçekleşen İstisna: - " + str(err))
 
 
 __mod_name__ = "GOOGLE"
 
 __help__ = """
- ❍ /google <text>*:* Perform a google search
- ❍ /img <text>*:* Search Google for images and returns them\nFor greater no. of results specify lim, For eg: `/img hello lim=10`
- ❍ /app <appname>*:* Searches for an app in Play Store and returns its details.
- ❍ /reverse: Does a reverse image search of the media which it was replied to.
- ❍ GroupMenter <query>*:* GroupMenter answers the query
-  💡Ex: `Masha where is India?`
+ ❍ /google <text>*:* Bir google araması yapın
+  ❍ /img <text>*:* Google'da görselleri arayın ve onları döndürün\nDaha büyük numara için. sonuçların sayısı lim'i belirtir, Örneğin: `/img merhaba lim=10'
+  ❍ /app <appname>*:* Play Store'da bir uygulama arar ve ayrıntılarını döndürür.
+  ❍ /reverse: Yanıtlandığı medyanın tersten görüntü aramasını yapar.
+  ❍ Emilia <query>*:* Emilia sorguyu cevaplar
+   💡Örn: `Anıtkabir nerede?`
 """
