@@ -83,42 +83,42 @@ async def profanity(event):
     input = event.pattern_match.group(2)
     if not event.sender_id == OWNER_ID:
         if not await is_register_admin(event.input_chat, event.sender_id):
-           await event.reply("Only admins can execute this command!")
+           await event.reply("Bu komutu yalnızca yöneticiler yürütebilir!")
            return
         else:
           if not await can_change_info(message=dmod):
-            await event.reply("You are missing the following rights to use this command:CanChangeinfo")
+            await event.reply("Bu komutu kullanmak için aşağıdaki haklara sahip değilsiniz:CanChangeinfo")
             return
     if not input:
         if is_nightmode_indb(str(event.chat_id)):
                 await event.reply(
-                    "Currently NightMode is Enabled for this Chat"
+                    "Şu anda NightMode bu Sohbet için Etkin"
                 )
                 return
         await event.reply(
-            "Currently NightMode is Disabled for this Chat"
+            "Şu anda bu Sohbet için NightMode Devre Dışı"
         )
         return
     if "on" in input:
         if event.is_group:
             if is_nightmode_indb(str(event.chat_id)):
                     await event.reply(
-                        "Night Mode is Already Turned ON for this Chat"
+                        "Bu Sohbet için Gece Modu Zaten AÇIK"
                     )
                     return
             add_nightmode(str(event.chat_id))
-            await event.reply("NightMode turned on for this chat.")
+            await event.reply("Bu sohbet için Gece Modu açıldı.")
     if "off" in input:
         if event.is_group:
             if not is_nightmode_indb(str(event.chat_id)):
                     await event.reply(
-                        "Night Mode is Already Off for this Chat"
+                        "Bu Sohbet için Gece Modu Zaten Kapalı"
                     )
                     return
         rmnightmode(str(event.chat_id))
-        await event.reply("NightMode Disabled!")
+        await event.reply("Gece Modu Devre Dışı!")
     if not "off" in input and not "on" in input:
-        await event.reply("Please Specify On or Off!")
+        await event.reply("Lütfen ON veya OFF olarak belirtin!")
         return
 
 
@@ -129,7 +129,7 @@ async def job_close():
     for pro in chats:
         try:
             await tbot.send_message(
-              int(pro.chat_id), "12:00 Am, Group Is Closing Till 6 Am. Night Mode Started ! \n**Powered By Evlie**"
+              int(pro.chat_id), "12:00, Grup 06:00'a Kadar Kapanıyor. Gece Modu Başladı! \n**"
             )
             await tbot(
             functions.messages.EditChatDefaultBannedRightsRequest(
@@ -137,10 +137,10 @@ async def job_close():
             )
             )
         except Exception as e:
-            logger.info(f"Unable To Close Group {chat} - {e}")
+            logger.info(f"{chat} - {e} Grubu Kapatılamıyor")
 
 #Run everyday at 12am
-scheduler = AsyncIOScheduler(timezone="Asia/Kolkata")
+scheduler = AsyncIOScheduler(timezone="Europe/Istanbul")
 scheduler.add_job(job_close, trigger="cron", hour=23, minute=59)
 scheduler.start()
 
@@ -151,7 +151,7 @@ async def job_open():
     for pro in chats:
         try:
             await tbot.send_message(
-              int(pro.chat_id), "06:00 Am, Group Is Opening.\n**Powered By Group Menter**"
+              int(pro.chat_id), "06:00, Grup Açılıyor.\n**"
             )
             await tbot(
             functions.messages.EditChatDefaultBannedRightsRequest(
@@ -159,10 +159,10 @@ async def job_open():
             )
         )
         except Exception as e:
-            logger.info(f"Unable To Open Group {pro.chat_id} - {e}")
+            logger.info(f"{pro.chat_id} - {e} Grubu Açılamıyor")
 
 # Run everyday at 06
-scheduler = AsyncIOScheduler(timezone="Asia/Kolkata")
+scheduler = AsyncIOScheduler(timezone="Europe/Istanbul")
 scheduler.add_job(job_open, trigger="cron", hour=5, minute=58)
 scheduler.start()
 
@@ -170,9 +170,8 @@ scheduler.start()
 __help__ = """
 
  ❍ /nightmode on/off
-
-**Note:** Night Mode chats get Automatically closed at 12pm(IST)
-and Automatically openned at 6am(IST) To Prevent Night Spams.
+**Not:** Gece Modu sohbetleri saat 12:00'de (IST) Otomatik olarak kapanır
+ve Gece İstenmeyen Postaları Önlemek için sabah 6'da (IST) Otomatik olarak açılır.
 """
 
-__mod_name__ = "N MODE"
+__mod_name__ = "NIGHT MODE"
