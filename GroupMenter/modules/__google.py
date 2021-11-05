@@ -35,7 +35,7 @@ async def _(event):
     if event.fwd_from:
         return
     
-    webevent = await event.reply("searching........")
+    webevent = await event.reply("Aranıyor........")
     match = event.pattern_match.group(1)
     page = re.findall(r"page=\d+", match)
     try:
