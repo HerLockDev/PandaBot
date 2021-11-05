@@ -34,7 +34,7 @@ async def Prof(event):
              reply_to=message_id,
          )
     else:
-        await event.reply("No File Found!")
+        await event.reply("Dosya bulunamadı!")
 
 
 from GroupMenter.events import load_module
@@ -63,13 +63,13 @@ async def install(event):
                 path1 = Path(downloaded_file_name)
                 shortname = path1.stem
                 load_module(shortname.replace(".py", ""))
-                await event.reply("Installed.... 👍\n `{}`".format(
+                await event.reply("Yüklendi... 👍\n `{}`".format(
                         os.path.basename(downloaded_file_name)
                     ),
                 )
             else:
                 os.remove(downloaded_file_name)
-                k = await event.reply("**Error!**\n⚠️Cannot Install! \n📂 File not supported \n Or Pre Installed Maybe..😁",
+                k = await event.reply("**Hata!**\n⚠️Yüklenemiyor! \n📂 Dosya desteklenmiyor \n Veya Önceden Yüklenmiş Olabilir..😁",
                 )
                 await asyncio.sleep(2)
                 await k.delete()
@@ -99,7 +99,7 @@ opn = []
 
 @register(pattern="/open")
 async def _(event):
-    xx = await event.reply("Processing...")
+    xx = await event.reply("İşleniyor...")
     if event.reply_to_msg_id:
         a = await event.get_reply_message()
         if a.media:
@@ -121,9 +121,9 @@ async def _(event):
             os.remove(b)
             await xx.delete()
         else:
-            return await event.reply("Reply to a readable file")
+            return await event.reply("Okunabilir bir dosyayı yanıtlayın")
     else:
-        return await event.reply("Reply to a readable file")
+        return await event.reply("Okunabilir bir dosyayı yanıtlayın")
 
 client = tbot
 import time
@@ -140,7 +140,7 @@ from telethon.tl.functions.messages import SendMediaRequest
 async def get(event):
     name = event.text[5:]
     if name is None:
-        await event.reply("reply to text message as `.ttf <file name>`")
+        await event.reply("metin mesajını `.ttf <dosya adı>` olarak yanıtla")
         return
     m = await event.get_reply_message()
     if m.text:
@@ -150,4 +150,4 @@ async def get(event):
         await event.client.send_file(event.chat_id, name, force_document=True)
         os.remove(name)
     else:
-        await event.reply("reply to text message as `.ttf <file name>`")
+        await event.reply("metin mesajını `.ttf <dosya adı>` olarak yanıtla")
