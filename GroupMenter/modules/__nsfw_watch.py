@@ -38,9 +38,9 @@ async def nsfw(event):
     if event.is_group:
             pass
     if is_nsfwatch_indb(str(event.chat_id)):
-        await event.reply("`This Chat has Enabled NSFW watch`")
+        await event.reply("`Bu Sohbet, NSFW izlemeyi Etkinleştirdi`")
     else:
-        await event.reply("`NSfw Watch is off for this chat`")
+        await event.reply("`NSFW Watch bu sohbet için kapalı`")
 
 MUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 @register(pattern="^/addnsfw")
@@ -53,10 +53,10 @@ async def nsfw_watch(event):
         else:
             pass
     if is_nsfwatch_indb(str(event.chat_id)):
-        await event.reply("`This Chat Has Already Enabled Nsfw Watch.`")
+        await event.reply("`Bu Sohbet Zaten Nsfw İzlemeyi Etkinleştirdi.`")
         return
     add_nsfwatch(str(event.chat_id))
-    await event.reply(f"**Added Chat {event.chat.title} With Id {event.chat_id} To Database. This Groups Nsfw Contents Will Be Deleted And Logged in Logging Group**")
+    await event.reply(f"**Veritabanına {event.chat_id} Kimlikli Sohbet {event.chat.title} Eklendi. Bu Gruplar Nsfw İçeriği Silinecek ve Kayıt Grubuna Giriş Yapılacaktır**")
 
 @register(pattern="^/rmnsfw ?(.*)")
 async def disable_nsfw(event):
@@ -68,10 +68,10 @@ async def disable_nsfw(event):
         else:
             pass
     if not is_nsfwatch_indb(str(event.chat_id)):
-        await event.reply("This Chat Has Not Enabled Nsfw Watch.")
+        await event.reply("Bu Sohbet Nsfw İzlemeyi Etkinleştirmedi.")
         return
     rmnsfwatch(str(event.chat_id))
-    await event.reply(f"**Removed Chat {event.chat.title} With Id {event.chat_id} From Nsfw Watch**")
+    await event.reply(f"**Nsfw Watch'tan {event.chat_id} Kimlikli {event.chat.title} Sohbet Kaldırıldı**")
     
 @bot.on(events.NewMessage())        
 async def ws(event):
@@ -104,16 +104,16 @@ async def ws(event):
         else:
             ujwal = wstark.id
         try:
-            await tbot.send_message(event.chat_id, f"**#NSFW_WATCH** \n**Chat :** `{hehe}` \n**Nsfw Sender - User / Bot :** `{ujwal}` \n**Chat Title:** `{ctitle}`")  
+            await tbot.send_message(event.chat_id, f"**#NSFW_WATCH** \n**Sohbet :** `{hehe}` \n**Nsfw Gönderen - Kullanıcı / Bot :** `{ujwal}` \n**Sohbet Başlığı:** `{ctitle} `")  
             return
         except:
             return
 
 
 __help__ = """
-Group Menter can protect your group from NSFW senders
- ❍ /addnsfw*:* Adds The Group to nsfw Watch List
- ❍ /rmnsfw*:* Removes The Group From nsfw Watch List
+Emilia, grubunuzu NSFW gönderenlerinden koruyabilir
+  ❍ /addnsfw*:* Grubu nsfw İzleme Listesine ekler
+  ❍ /rmnsfw*:* Grubu nsfw İzleme Listesinden Kaldırır
 """
 
 __mod_name__ = "NSFW"
