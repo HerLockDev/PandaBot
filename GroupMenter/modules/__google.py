@@ -267,7 +267,7 @@ async def apk(e):
             + app_link
             + "'>Play Store'da Görüntüle</a>"
         )
-        app_details += "\n\n===> GroupMenter <==="
+        app_details += "\n\n===> __Emilia__ <==="
         await e.reply(app_details, link_preview=True, parse_mode="HTML")
     except IndexError:
         await e.reply("Aramada sonuç bulunamadı. Lütfen **Geçerli uygulama adı** girin")
