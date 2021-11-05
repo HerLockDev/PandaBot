@@ -18,16 +18,16 @@ from telegram.ext import CallbackContext, CommandHandler, run_async
 def allow_groups(update: Update, context: CallbackContext):
     args = context.args
     if not args:
-        update.effective_message.reply_text(f"Current state: {GroupMenter.ALLOW_CHATS}")
+        update.effective_message.reply_text(f"Mevcut durum: {GroupMenter.ALLOW_CHATS}")
         return
     if args[0].lower() in ["off", "no"]:
         GroupMenter.ALLOW_CHATS = True
     elif args[0].lower() in ["yes", "on"]:
         GroupMenter.ALLOW_CHATS = False
     else:
-        update.effective_message.reply_text("Format: /lockdown Yes/No or Off/On")
+        update.effective_message.reply_text("Biçim: /lockdown Yes/No or Off/On")
         return
-    update.effective_message.reply_text("Done! Lockdown value toggled.")
+    update.effective_message.reply_text("Tamamlandı! Lockdown değeri değiştirildi.")
 
 @run_async
 @dev_plus
@@ -40,30 +40,30 @@ def leave(update: Update, context: CallbackContext):
             bot.leave_chat(int(chat_id))
         except TelegramError:
             update.effective_message.reply_text(
-                "Beep boop, I could not leave that group(dunno why tho)."
+                "Bip boop, o gruptan ayrılamadım (neden bilmiyorum)."
             )
             return
         with suppress(Unauthorized):
-            update.effective_message.reply_text("Beep boop, I left that soup!.")
+            update.effective_message.reply_text("Bip boop, o çorbayı bıraktım!.")
     else:
-        update.effective_message.reply_text("Send a valid chat ID")
+        update.effective_message.reply_text("Geçerli bir sohbet kimliği gönderin")
 
 
 @run_async
 @dev_plus
 def gitpull(update: Update, context: CallbackContext):
     sent_msg = update.effective_message.reply_text(
-        "Pulling all changes from remote and then attempting to restart."
+        "Tüm değişiklikleri uzaktan kumandadan çekip yeniden başlatmaya çalışmak."
     )
     subprocess.Popen("git pull", stdout=subprocess.PIPE, shell=True)
 
-    sent_msg_text = sent_msg.text + "\n\nChanges pulled...I guess.. Restarting in "
+    sent_msg_text = sent_msg.text + "\n\nDeğişiklikler çekildi...Sanırım... Yeniden başlatılıyor "
 
     for i in reversed(range(5)):
         sent_msg.edit_text(sent_msg_text + str(i + 1))
         sleep(1)
 
-    sent_msg.edit_text("Restarted.")
+    sent_msg.edit_text("Yeniden Başlatıldı.")
 
     os.system("restart.bat")
     os.execv("start.bat", sys.argv)
@@ -73,7 +73,7 @@ def gitpull(update: Update, context: CallbackContext):
 @dev_plus
 def restart(update: Update, context: CallbackContext):
     update.effective_message.reply_text(
-        "Starting a new instance and shutting down this one"
+        "Yeni bir örnek başlatmak ve bunu kapatmak"
     )
 
     os.system("restart.bat")
