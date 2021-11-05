@@ -50,26 +50,26 @@ async def _(event):
     try:
         quew = event.pattern_match.group(1)
     except Exception:
-        await event.reply("Where is the question ?")
+        await event.reply("soru nerede?")
         return
     if "|" in quew:
         secrets, quess, options = quew.split("|")
     secret = secrets.strip()
 
     if not secret:
-        await event.reply("I need a poll id of 5 digits to make a poll")
+        await event.reply("Anket yapmak için 5 basamaklı bir anket kimliğine ihtiyacım var")
         return
 
     try:
         secret = str(secret)
     except ValueError:
-        await event.reply("Poll id should contain only numbers")
+        await event.reply("Anket kimliği yalnızca sayıları içermelidir")
         return
 
     # print(secret)
 
     if len(secret) != 5:
-        await event.reply("Poll id should be an integer of 5 digits")
+        await event.reply("Anket kimliği 5 basamaklı bir tam sayı olmalıdır")
         return
 
     allpoll = poll_id.find({})
@@ -77,7 +77,7 @@ async def _(event):
     for c in allpoll:
         if event.sender_id == c["user"]:
             await event.reply(
-                "Please stop the previous poll before creating a new one !"
+                "Lütfen yeni bir anket oluşturmadan önce önceki anketi durdurun!"
             )
             return
     poll_id.insert_one({"user": event.sender_id, "pollid": secret})
@@ -92,7 +92,7 @@ async def _(event):
             rightone = two.strip()
         else:
             await event.reply(
-                "You need to select the right answer with question number like True@1, True@3 etc.."
+                "True@1, True@3 vb. gibi soru numarası ile doğru cevabı seçmeniz gerekiyor."
             )
             return
 
@@ -103,7 +103,7 @@ async def _(event):
             quizoptionss.append(types.PollAnswer(ab, b"1"))
             quizoptionss.append(types.PollAnswer(cd, b"2"))
         except Exception:
-            await event.reply("At least need two options to create a poll")
+            await event.reply("Anket oluşturmak için en az iki seçeneğe ihtiyacınız var")
             return
         try:
             ef = option.split(" ")[6 - 1]
@@ -149,7 +149,7 @@ async def _(event):
     elif "False" in quiz:
         quizy = False
     else:
-        await event.reply("Wrong arguments provided !")
+        await event.reply("Yanlış argümanlar sağlandı !")
         return
 
     pvote = option.split(" ")[2 - 1]
@@ -158,7 +158,7 @@ async def _(event):
     elif "False" in pvote:
         pvoty = False
     else:
-        await event.reply("Wrong arguments provided !")
+        await event.reply("Yanlış argümanlar sağlandı !")
         return
     mchoice = option.split(" ")[3 - 1]
     if "True" in mchoice:
@@ -166,7 +166,7 @@ async def _(event):
     elif "False" in mchoice:
         mchoicee = False
     else:
-        await event.reply("Wrong arguments provided !")
+        await event.reply("Yanlış argümanlar sağlandı !")
         return
     optionss = []
     try:
@@ -175,7 +175,7 @@ async def _(event):
         optionss.append(types.PollAnswer(ab, b"1"))
         optionss.append(types.PollAnswer(cd, b"2"))
     except Exception:
-        await event.reply("At least need two options to create a poll")
+        await event.reply("Anket oluşturmak için en az iki seçeneğe ihtiyacınız var")
         return
     try:
         ef = option.split(" ")[6 - 1]
@@ -298,10 +298,10 @@ async def _(event):
         )
 
     if pvoty is True and quizy is True and mchoicee is True:
-        await event.reply("You can't use multiple voting with quiz mode")
+        await event.reply("Test moduyla çoklu oylama kullanamazsınız")
         return
     if pvoty is False and quizy is True and mchoicee is True:
-        await event.reply("You can't use multiple voting with quiz mode")
+        await event.reply("Test moduyla çoklu oylama kullanamazsınız")
         return
 
 
@@ -322,28 +322,28 @@ async def stop(event):
             return
 
     if not event.reply_to_msg_id:
-        await event.reply("Please reply to a poll to stop it")
+        await event.reply("Lütfen durdurmak için bir anketi yanıtlayın")
         return
 
     if input is None:
-        await event.reply("Where is the poll id ?")
+        await event.reply("anket kimliği nerede ?")
         return
 
     try:
         secret = str(secret)
     except ValueError:
-        await event.reply("Poll id should contain only numbers")
+        await event.reply("Anket kimliği yalnızca sayıları içermelidir")
         return
 
     if len(secret) != 5:
-        await event.reply("Poll id should be an integer of 5 digits")
+        await event.reply("Anket kimliği 5 basamaklı bir tam sayı olmalıdır")
         return
 
     msg = await event.get_reply_message()
 
     if str(msg.sender_id) != str(BOT_ID):
         await event.reply(
-            "I can't do this operation on this poll.\nProbably it's not created by me"
+            "Bu işlemi bu ankette yapamam.\nMuhtemelen benim tarafımdan oluşturulmamıştır."
         )
         return
     print(secret)
@@ -352,11 +352,11 @@ async def stop(event):
         for c in allpoll:
             if not event.sender_id == c["user"] and not secret == c["pollid"]:
                 await event.reply(
-                    "Oops, either you haven't created this poll or you have given wrong poll id"
+                    "Hata, ya bu anketi oluşturmadınız ya da yanlış anket kimliği verdiniz"
                 )
                 return
         if msg.poll.poll.closed:
-            await event.reply("Oops, the poll is already closed.")
+            await event.reply("Hata, anket zaten kapalı.")
             return
         poll_id.delete_one({"user": event.sender_id})
         pollid = msg.poll.poll.id
@@ -365,9 +365,9 @@ async def stop(event):
                 poll=types.Poll(id=pollid, question="", answers=[], closed=True)
             )
         )
-        await event.reply("Successfully stopped the poll")
+        await event.reply("Anket başarıyla durduruldu")
     else:
-        await event.reply("This isn't a poll")
+        await event.reply("Bu bir anket değil")
 
 
 @register(pattern="^/forgotpollid$")
@@ -388,30 +388,30 @@ async def stop(event):
         if event.sender_id == c["user"]:
             try:
                 poll_id.delete_one({"user": event.sender_id})
-                await event.reply("Done you can now create a new poll.")
+                await event.reply("Bitti, şimdi yeni bir anket oluşturabilirsiniz.")
             except Exception:
-                await event.reply("Seems like you haven't created any poll yet !")
+                await event.reply("Henüz bir anket oluşturmamışsınız gibi görünüyor !")
 
 
 __help__ = """
-You can now send polls anonymously with Group Menter
-Here is how you can do it:
-**Parameters** -
- ❍ poll-id - a poll id consists of an 5 digit random integer, this id is automatically removed from the system when you stop your previous poll
- ❍ question - the question you wanna ask
- ❍ <True@optionnumber/False>(1) - quiz mode, you must state the correct answer with `@` eg: `True@1` or `True@2`
- ❍ <True/False>(2) - public votes
- ❍ <True/False>(3) - multiple choice
-**Syntax** -
-❍ `/poll <poll-id> <question> | <True@optionnumber/False> <True/False> <True/False> <option1> <option2> ... upto <option10>`
-**Examples** -
-❍ `/poll 12345 | am i cool? | False False False yes no`
-❍ `/poll 12345 | am i cool? | True@1 False False yes no`
-**To stop a poll**
-Reply to the poll with `/stoppoll <poll-id>` to stop the poll
-**NOTE**
-If you have forgotten your poll id or deleted the poll so that you can't stop the previous poll type `/forgotpollid`, this will reset the poll id, you will have no access to the previous poll !
+Artık Group Menter ile anonim olarak anket gönderebilirsiniz
+İşte bunu nasıl yapabilirsiniz:
+**Parametreler** -
+ ❍ poll-id - bir anket kimliği 5 basamaklı rastgele bir tam sayıdan oluşur, önceki anketinizi durdurduğunuzda bu kimlik otomatik olarak sistemden kaldırılır
+ ❍ question - sormak istediğiniz soru
+ ❍ <True@optionnumber/False>(1) - test modu, doğru cevabı "@" ile belirtmelisiniz, örneğin: "True@1" veya "True@2"
+ ❍ <Doğru/Yanlış>(2) - genel oylar
+ ❍ <Doğru/Yanlış>(3) - çoktan seçmeli
+**Sözdizimi** -
+`/poll <poll-id> <soru> | <Doğru@seçenek numarası/Yanlış> <Doğru/Yanlış> <Doğru/Yanlış> <seçenek1> <seçenek2> ... <seçenek10>`a kadar
+**Örnekler** -
+`/poll 12345 | iyi miyim? | Yanlış Yanlış Yanlış evet hayır`
+`/poll 12345 | iyi miyim? | Doğru@1 Yanlış Yanlış evet hayır`
+**Bir anketi durdurmak için**
+Anketi durdurmak için `/stoppoll <poll-id>` ile anketi yanıtlayın
+**NOT**
+Anket kimliğinizi unuttuysanız veya bir önceki anket türünü `/forgotpollid` durduramamak için anketi sildiyseniz, bu anket kimliğini sıfırlayacaktır, önceki ankete erişiminiz olmayacaktır!
 """
 
 
-__mod_name__ = "POLLING"
+__mod_name__ = "ANKET"
