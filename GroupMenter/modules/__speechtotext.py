@@ -33,7 +33,7 @@ async def _(event):
         return
     if event.is_group:
      if not (await is_register_admin(event.input_chat, event.message.sender_id)):
-       await event.reply("🚨 Need Admin Pewer.. You can't use this command.. But you can use in my pm")
+       await event.reply("🚨 Admin @AnossaQWE Gerekiyor.. Bu komutu kullanamazsınız.. Ama benim pm'imde kullanabilirsiniz.")
        return
 
     start = datetime.now()
@@ -47,7 +47,7 @@ async def _(event):
         )
         if IBM_WATSON_CRED_URL is None or IBM_WATSON_CRED_PASSWORD is None:
             await event.reply(
-                "You need to set the required ENV variables for this module. \nModule stopping"
+                "Bu modül için gerekli ENV değişkenlerini ayarlamanız gerekir. \nModül durdurma"
             )
         else:
             # await event.reply("Starting analysis")
@@ -76,11 +76,11 @@ async def _(event):
                 end = datetime.now()
                 ms = (end - start).seconds
                 if transcript_response != "":
-                    string_to_show = "TRANSCRIPT: `{}`\nTime Taken: {} seconds\nConfidence: `{}`".format(
+                    string_to_show = "TRANSKRİPT: `{}`\Alınan Süre: {} S aniye\Güven: `{}`".format(
                         transcript_response, ms, transcript_confidence
                     )
                 else:
-                    string_to_show = "TRANSCRIPT: `Nil`\nTime Taken: {} seconds\n\n**No Results Found**".format(
+                    string_to_show = "TRANSKRİPT: `Nil`\nAlınan Süre: {} saniye\n\n**Sonuç Bulunamadı**".format(
                         ms
                     )
                 await event.reply(string_to_show)
