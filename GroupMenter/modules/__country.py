@@ -19,7 +19,7 @@ async def msg(event):
     try:
 	    a = country.info()
     except:
-	    await event.reply("Country Not Avaiable Currently")
+	    await event.reply("Ülke Şu anda Kullanılamıyor")
     name = a.get("name")
     bb= a.get("altSpellings")
     hu = ''
@@ -79,29 +79,29 @@ async def msg(event):
 
     wiki = a.get("wiki")
 
-    caption = f"""<b><u>Information Gathered Successfully</b></u>
+    caption = f"""<b><u>Bilgi Başarıyla Toplandı</b></u>
 <b>
-Country Name:- {name}
-Alternative Spellings:- {hu}
-Country Area:- {area} square kilometers
-Borders:- {borders}
-Calling Codes:- {call}
-Country's Capital:- {capital}
-Country's currency:- {currencies}
-Country's Flag:- {okie}
+Ülke Adı:- {name}
+Alternatif Yazımlar:- {hu}
+Ülke Alanı:- {area} kilometrekare
+Sınırlar:- {borders}
+Arama Kodları:- {call}
+Ülkenin Başkenti:- {capital}
+Ülkenin para birimi:- {currencies}
+Ülkenin Bayrağı:- {okie}
 Demonym:- {HmM}
-Country Type:- {EsCoBaR}
-ISO Names:- {iso}
-Languages:- {lMAO}
-Native Name:- {nonive}
-population:- {waste}
-Region:- {reg}
-Sub Region:- {sub}
-Time Zones:- {tom}
-Top Level Domain:- {lanester}
-wikipedia:- {wiki}</b>
+Ülke Türü:- {EsCoBaR}
+ISO Adları:- {iso}
+Diller:- {lMAO}
+Yerel Ad:- {nonive}
+nüfus:- {waste}
+Bölge:- {reg}
+Alt Bölge:- {sub}
+Saat Dilimleri:- {tom}
+Üst Düzey Etki Alanı:- {lanester}
+Wikipedia:- {wiki}</b>
 
-Gathered By Group Menter.</b>
+Emilia Tarafından Toplandı.</b>
 """
     
     
@@ -113,9 +113,9 @@ Gathered By Group Menter.</b>
     
 
 __help__ = """
-I will give information about a country
+Bir ülke hakkında bilgi vereceğim
 
- ❍ /country <country name>*:* Gathering info about given country
+  ❍ `/country <ülke adı>`*:* Verilen ülke hakkında bilgi toplama
 """
 
 __mod_name__ = "COUNTRY"
