@@ -13,8 +13,8 @@ from telethon import events
 from GroupMenter.events import register
 
 string = (
-  "I belong To [My Channel](https://t.me/GroupMenter)!",
-  "Im Fairly Yound And Was Made by mr_dark_prince!",
+  "[Kanalıma](https://t.me/ANOSSABOTS) aitim!",
+  "Oldukça gencim ve Anossa tarafından yapıldım!",
 )
 
 
@@ -48,9 +48,9 @@ async def _(event):
         ses_id = 'null'
         expires = 'null'
         sql.set_ses(chat.id, ses_id, expires)
-        await event.reply("AI successfully enabled for this chat!")
+        await event.reply("AI bu sohbet için başarıyla etkinleştirildi!")
         return
-    await event.reply("AI Bot is already enabled for this chat!")
+    await event.reply("AI Bot bu sohbet için zaten etkin!")
     return ""
 
 
@@ -64,10 +64,10 @@ async def _(event):
     chat = event.chat
     is_chat = sql.is_chat(chat.id)
     if not is_chat:
-        await event.reply("AI isn't enabled here in the first place!")
+        await event.reply("AI ilk etapta burada etkin değil!")
         return
     sql.rem_chat(chat.id)
-    await event.reply("AI Bot disabled successfully!")
+    await event.reply("AI Bot başarıyla devre dışı bırakıldı!")
 
 
 @tbot.on(events.NewMessage(pattern=None))
@@ -120,7 +120,7 @@ async def _(event):
    except CFError as e:
            print(e)
   elif "Ann" in result:
-   pro = "Yeah, My name is GroupMenter"
+   pro = "Evet, benim adım Emilia"
    try:
       async with tbot.action(event.chat_id, 'typing'):
            await event.reply(pro)
