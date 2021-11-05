@@ -27,18 +27,18 @@ async def _(event):
             ),
         )
         await event.reply(
-            "Open with: [🌏Google Maps]({})".format(gm),
+            "Şununla aç: [🌏Google Haritalar]({})".format(gm),
             link_preview=False,
         )
     except Exception as e:
         print(e)
-        await event.reply("I can't find that")
+        await event.reply("Bunu bulamıyorum")
 
 
 __help__ = """
-Hi I can send gps location..
+Merhaba gps konumu gönderebilirim..
 
- ❍ /gps <location>*:* Get gps location.
+  ❍ /gps <konum>*:* GPS konumunu alın.
 """
 
 __mod_name__ = "GPS"
