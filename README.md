@@ -27,7 +27,7 @@ Güçlü Bir Grup Yöneticisi Botu. PyroTelethon'da Yazıldı.
 ### Heroku'ya deploy💤
 
 <p align="left">
-  <a href="https://dashboard.heroku.com/new?template=https://github.com/AnossaTG/emiliamenter">
+  <a href="https://dashboard.heroku.com/new?template=https://github.com/Gecebird/gece-ku-u">
      <img height="30px" src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku">
   </a>
 
