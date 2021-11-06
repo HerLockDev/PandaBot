@@ -129,7 +129,7 @@ async def job_close():
     for pro in chats:
         try:
             await tbot.send_message(
-              int(pro.chat_id), "12:00, Grup 06:00'a Kadar Kapanıyor. Gece Modu Başladı! \n**"
+              int(pro.chat_id), "12:00, Grup 06:00'a Kadar Kapanıyor. Gece Modu Başladı! \n"
             )
             await tbot(
             functions.messages.EditChatDefaultBannedRightsRequest(
@@ -151,7 +151,7 @@ async def job_open():
     for pro in chats:
         try:
             await tbot.send_message(
-              int(pro.chat_id), "06:00, Grup Açılıyor.\n**"
+              int(pro.chat_id), "06:00, Grup Açılıyor.\n"
             )
             await tbot(
             functions.messages.EditChatDefaultBannedRightsRequest(
@@ -174,4 +174,4 @@ __help__ = """
 ve Gece İstenmeyen Postaları Önlemek için sabah 6'da (IST) Otomatik olarak açılır.
 """
 
-__mod_name__ = "NIGHT MODE"
+__mod_name__ = "GECE MODU"
