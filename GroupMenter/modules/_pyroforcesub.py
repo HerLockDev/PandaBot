@@ -198,4 +198,4 @@ __help__ = """
    💡fsub'u devre dışı bırakırsanız, çalışmak için tekrar ayarlamanız gerekir.. /fsub {kanal kullanıcı adı}
   ❍ /fsub clear - Benim tarafımdan sessize alınan tüm üyelerin sesini açmak için.
 """
-__mod_name__ = "BUTTON"
+__mod_name__ = "BUTON"
