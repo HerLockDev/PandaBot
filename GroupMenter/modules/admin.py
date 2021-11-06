@@ -257,7 +257,7 @@ def set_title(update: Update, context: CallbackContext):
 
     bot.sendMessage(
         chat.id,
-        f"<code>{user_member.user.first_name veya user_id}</code> için başlık başarıyla ayarlandı "
+        f"<code>{user_member.user.first_name or user_id}</code> için başlık başarıyla ayarlandı "
         f"<code>{html.escape(title[:16])}</code>'a!",
         parse_mode=ParseMode.HTML,
     )
