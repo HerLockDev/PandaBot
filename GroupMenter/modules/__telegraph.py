@@ -28,20 +28,20 @@ async def _(event):
             )
             end = datetime.now()
             ms = (end - start).seconds
-            h = await event.reply("Downloaded to {} in {} seconds.".format(downloaded_file_name, ms))
+            h = await event.reply("{} saniye içinde {} kullanıcısına indirildi.".format(downloaded_file_name, ms))
             if downloaded_file_name.endswith((".webp")):
                 resize_image(downloaded_file_name)
             try:
                 start = datetime.now()
                 media_urls = upload_file(downloaded_file_name)
             except exceptions.TelegraphException as exc:
-                await h.edit("ERROR: " + str(exc))
+                await h.edit("HATA: " + str(exc))
                 os.remove(downloaded_file_name)
             else:
                 end = datetime.now()
                 ms_two = (end - start).seconds
                 os.remove(downloaded_file_name)
-                await h.edit("Uploaded to https://telegra.ph{})".format(media_urls[0]), link_preview=True)
+                await h.edit("https://telegra.ph{}'a yüklendi)".format(media_urls[0]), link_preview=True)
         elif input_str == "xt":
             user_object = await tbot.get_entity(r_message.sender_id)
             title_of_page = user_object.first_name # + " " + user_object.last_name
@@ -69,9 +69,9 @@ async def _(event):
             )
             end = datetime.now()
             ms = (end - start).seconds
-            await event.reply("Pasted to https://telegra.ph/{} in {} seconds.".format(response["path"], ms), link_preview=True)
+            await event.reply("{} saniye içinde https://telegra.ph/{} adresine yapıştırıldı.".format(response["path"], ms), link_preview=True)
     else:
-        await event.reply("Reply to a message to get a permanent telegra.ph link.")
+        await event.reply("Kalıcı bir telegra.ph bağlantısı almak için bir mesajı yanıtlayın.")
 
 
 def resize_image(image):
@@ -80,9 +80,9 @@ def resize_image(image):
 
 
 __help__ = """
-I can upload files to Telegraph
- ❍ /tm :Get Telegraph Link Of Replied Media
- ❍ /txt :Get Telegraph Link of Replied Text
+Telegraph'a dosya yükleyebilirim
+  ❍ /tm :Cevaplanan Medyanın Telgraf Bağlantısını Alın
+  ❍ /txt :Cevaplanan Metnin Telgraf Bağlantısını Alın
 """
 
-__mod_name__ = "T GRAPH"
+__mod_name__ = "TELEGRAPH"
