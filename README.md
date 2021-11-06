@@ -1,4 +1,4 @@
-# Emilia Menter
+# #Ge͂̂͝c̨͒ͤ̕͜e̡͝ k̶̴̛ͮ͌̒̃͟͡uş̟̲͎u̼͓̭̝ͦ̂͋̈̋̔ Menter
 
 Güçlü Bir Grup Yöneticisi Botu. PyroTelethon'da Yazıldı.
 
@@ -11,17 +11,17 @@ Güçlü Bir Grup Yöneticisi Botu. PyroTelethon'da Yazıldı.
      <img height="30px" src="http://forthebadge.com/images/badges/made-with-python.svg">
   </a>
 
-[![Telegram](https://img.shields.io/badge/Channel-003245?style=flat&labelColor=224242&logoColor=white&for-the-badge&logo=telegram)](https://t.me/AnossaBots)&nbsp; [![Telegram](https://img.shields.io/badge/Support-003245?style=flat&labelColor=224242&logoColor=white&for-the-badge&logo=telegram)](https://t.me/AnossaninGrubu)&nbsp;
+[![Telegram](https://img.shields.io/badge/Channel-003245?style=flat&labelColor=224242&logoColor=white&for-the-badge&logo=telegram)](https://t.me/AnossaBots)&nbsp; [![Telegram](https://img.shields.io/badge/Support-003245?style=flat&labelColor=224242&logoColor=white&for-the-badge&logo=telegram)](https://t.me/mutsuz_panda)&nbsp;
 
 ##### Info
 
 •Python3 üzerinde çalışan modüler bir Telegram Python botu.
 
-• Telegramta [Emilia](https://t.me/MyEmiliaBot) olarak bulunabilir.
+• Telegramta [#Ge͂̂͝c̨͒ͤ̕͜e̡͝ k̶̴̛ͮ͌̒̃͟͡uş̟̲͎u̼͓̭̝ͦ̂͋̈̋̔](http://t.me/mutsuz_pandabot) olarak bulunabilir.
 
 • Alternatif olarak, beni Telegramdan bulun! (Tüm destek sorularını, daha fazla kişinin size yardımcı olabileceği destek sohbetinde saklayın.)
 
-• Ayrıca [Buradan](https://t.me/AnossaninGrubu) destek grubumuza da katılabilirsiniz!
+• Ayrıca [Buradan](https://t.me/LORDSSCHAT) destek grubumuza da katılabilirsiniz!
 
 - Anime Tema Botu
 ### Heroku'ya deploy💤
@@ -31,18 +31,4 @@ Güçlü Bir Grup Yöneticisi Botu. PyroTelethon'da Yazıldı.
      <img height="30px" src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku">
   </a>
 
-### Devs 👨🏻‍💻
 
-**[Vivek](https://github.com/Vivek-TP)** ▪ **[Shameel Habeeb](https://github.com/shamilhabeebnelli)** ▪ **[Uvindu Bro](https://github.com/UvinduBro)** ▪ **[Miss-Valentina](https://github.com/Miss-Valentina)** ▪ **[Devil](https://github.com/lucifeermorningstar)** ▪ **[Anossa](https://github.com/AnossaTG)**
-
-### Credits ❤
-<details><summary>Tüm Krediler Burada</summary>
-<p>
-
-**[Vivek](https://github.com/VIVEK-TP)** ▪ **[Aswin Raj](https://github.com/ASWIN-RAJ-TG)** ▪ **[Uvindu Bro](https://github.com/UvinduBro)** ▪ **[Devil](https://github.com/lucifeermorningstar)** ▪ **[Miss-Valentina](https://github.com/Miss-Valentina)** ▪ **[MashaRobot](https://github.com/Mr-Dark-Prince/MashaRoBot)** ▪ **[SaitamaRobot](https://github.com/AnimeKaizoku/SaitamaRobot)** ▪ **[WilliamButcherBot](https://github.com/thehamkercat/WilliamButcherBot)**
-
-</details>
-
-### Sponsors 🎸
-
-**[Vivek](https://github.com/VIVEK-TP)** ▪ **[Aswin Raj](https://github.com/AsWIN-RAJ-TG)**
