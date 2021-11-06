@@ -23,8 +23,8 @@ async def covid(_, message):
 
 
 __help__ = """
- ❍ /covid - To Get Global Stats of Covid.
- ❍ /covid <country> - To Get Stats of A Single Country.
+ ❍ /covid - Covid'in Küresel İstatistiklerini Almak İçin.
+  ❍ /covid <country> - Tek Bir Ülkenin İstatistiklerini Almak İçin.
 """
 
 __mod_name__ = "COVID"
