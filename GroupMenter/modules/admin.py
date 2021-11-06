@@ -50,14 +50,14 @@ def promote(update: Update, context: CallbackContext) -> str:
         not (promoter.can_promote_members or promoter.status == "creator")
         and user.id not in DRAGONS
     ):
-        message.reply_text("You don't have the necessary rights to do that!")
+        message.reply_text("Bunu yapmak için gerekli haklara sahip değilsiniz!")
         return
 
     user_id = extract_user(message, args)
 
     if not user_id:
         message.reply_text(
-            "You don't seem to be referring to a user or the ID specified is incorrect.."
+            "Bir kullanıcıya atıfta bulunmuyor gibisiniz veya belirtilen kimlik yanlış.."
         )
         return
 
@@ -67,11 +67,11 @@ def promote(update: Update, context: CallbackContext) -> str:
         return
 
     if user_member.status == "administrator" or user_member.status == "creator":
-        message.reply_text("How am I meant to promote someone that's already an admin?")
+        message.reply_text("Zaten yönetici olan birini nasıl terfi ettirebilirim?")
         return
 
     if user_id == bot.id:
-        message.reply_text("I can't promote myself! Get an admin to do it for me.")
+        message.reply_text("Kendimi terfi ettiremiyorum! Bunu benim için yapması için bir yönetici bul.")
         return
 
     # set same perms as bot - bot can't assign higher perms than itself!
@@ -92,22 +92,22 @@ def promote(update: Update, context: CallbackContext) -> str:
         )
     except BadRequest as err:
         if err.message == "User_not_mutual_contact":
-            message.reply_text("I can't promote someone who isn't in the group.")
+            message.reply_text("Grupta olmayan birini terfi ettiremem.")
         else:
-            message.reply_text("An error occured while promoting.")
+            message.reply_text("Tanıtım yapılırken bir hata oluştu.")
         return
 
     bot.sendMessage(
         chat.id,
-        f"Sucessfully promoted <b>{user_member.user.first_name or user_id}</b>!",
+        f"<b>{user_member.user.first_name veya user_id}</b> başarıyla yükseltildi!",
         parse_mode=ParseMode.HTML,
     )
 
     log_message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
-        f"#PROMOTED\n"
+        f"#PROMOTE\n"
         f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
-        f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
+        f"<b>Kullanıcı:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
     )
 
     return log_message
@@ -130,7 +130,7 @@ def demote(update: Update, context: CallbackContext) -> str:
     user_id = extract_user(message, args)
     if not user_id:
         message.reply_text(
-            "You don't seem to be referring to a user or the ID specified is incorrect.."
+            "Bir kullanıcıya atıfta bulunmuyor gibisiniz veya belirtilen kimlik yanlış.."
         )
         return
 
@@ -140,15 +140,15 @@ def demote(update: Update, context: CallbackContext) -> str:
         return
 
     if user_member.status == "creator":
-        message.reply_text("This person CREATED the chat, how would I demote them?")
+        message.reply_text("Bu kişi sohbeti OLUŞTURDU, onların sıralamasını nasıl düşürürüm?")
         return
 
     if not user_member.status == "administrator":
-        message.reply_text("Can't demote what wasn't promoted!")
+        message.reply_text("Terfi edilmeyen şeyin derecesi düşürülemez!")
         return
 
     if user_id == bot.id:
-        message.reply_text("I can't demote myself! Get an admin to do it for me.")
+        message.reply_text("Kendimi küçültemem! Bunu benim için yapacak bir yönetici bulun.")
         return
 
     try:
@@ -167,22 +167,22 @@ def demote(update: Update, context: CallbackContext) -> str:
 
         bot.sendMessage(
             chat.id,
-            f"Sucessfully demoted <b>{user_member.user.first_name or user_id}</b>!",
+            f"<b>{user_member.user.first_name veya user_id}</b> başarıyla düşürüldü!",
             parse_mode=ParseMode.HTML,
         )
 
         log_message = (
             f"<b>{html.escape(chat.title)}:</b>\n"
-            f"#DEMOTED\n"
+            f"#DEMOTE\n"
             f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
-            f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
+            f"<b>Kullanıcı:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
         )
 
         return log_message
     except BadRequest:
         message.reply_text(
-            "Could not demote. I might not be admin, or the admin status was appointed by another"
-            " user, so I can't act upon them!"
+            "İndirilemedi. Yönetici olmayabilirim veya yönetici statüsü başka biri tarafından atanmış olabilir"
+            " kullanıcı, bu yüzden onlara göre hareket edemem!"
         )
         return
 
@@ -195,7 +195,7 @@ def refresh_admin(update, _):
     except KeyError:
         pass
 
-    update.effective_message.reply_text("Admins cache refreshed!")
+    update.effective_message.reply_text("Yönetici önbelleği yenilendi!")
 
 
 @run_async
@@ -218,47 +218,47 @@ def set_title(update: Update, context: CallbackContext):
 
     if not user_id:
         message.reply_text(
-            "You don't seem to be referring to a user or the ID specified is incorrect.."
+            "Bir kullanıcıya atıfta bulunmuyor gibisiniz veya belirtilen kimlik yanlış.."
         )
         return
 
     if user_member.status == "creator":
         message.reply_text(
-            "This person CREATED the chat, how can i set custom title for him?"
+            "Bu kişi sohbeti OLUŞTURDU, ona nasıl özel başlık ayarlayabilirim?"
         )
         return
 
     if user_member.status != "administrator":
         message.reply_text(
-            "Can't set title for non-admins!\nPromote them first to set custom title!"
+            "Yönetici olmayanlar için başlık ayarlanamıyor!\nÖzel başlık ayarlamak için önce onları tanıtın!"
         )
         return
 
     if user_id == bot.id:
         message.reply_text(
-            "I can't set my own title myself! Get the one who made me admin to do it for me."
+            "Kendi başlığımı kendim belirleyemem! Beni yönetici yapanı benim için yapsın."
         )
         return
 
     if not title:
-        message.reply_text("Setting blank title doesn't do anything!")
+        message.reply_text("Boş başlık ayarlamak hiçbir şey yapmaz!")
         return
 
     if len(title) > 16:
         message.reply_text(
-            "The title length is longer than 16 characters.\nTruncating it to 16 characters."
+            "Başlık uzunluğu 16 karakterden uzun.\n16 karaktere kısaltılıyor."
         )
 
     try:
         bot.setChatAdministratorCustomTitle(chat.id, user_id, title)
     except BadRequest:
-        message.reply_text("I can't set custom title for admins that I didn't promote!")
+        message.reply_text("Terfi etmediğim yöneticiler için özel başlık belirleyemiyorum!")
         return
 
     bot.sendMessage(
         chat.id,
-        f"Sucessfully set title for <code>{user_member.user.first_name or user_id}</code> "
-        f"to <code>{html.escape(title[:16])}</code>!",
+        f"<code>{user_member.user.first_name veya user_id}</code> için başlık başarıyla ayarlandı "
+        f"<code>{html.escape(title[:16])}</code>'a!",
         parse_mode=ParseMode.HTML,
     )
 
@@ -273,7 +273,7 @@ def setchatpic(update, context):
     user = update.effective_user
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        msg.reply_text("You are missing right to change group info!")
+        msg.reply_text("Grup bilgilerini değiştirme hakkınız yok!")
         return
 
     if msg.reply_to_message:
@@ -282,23 +282,23 @@ def setchatpic(update, context):
         elif msg.reply_to_message.document:
             pic_id = msg.reply_to_message.document.file_id
         else:
-            msg.reply_text("You can only set some photo as chat pic!")
+            msg.reply_text("Bazı fotoğrafları yalnızca sohbet resmi olarak ayarlayabilirsiniz!")
             return
-        dlmsg = msg.reply_text("Just a sec...")
+        dlmsg = msg.reply_text("Sadece bir saniye...")
         tpic = context.bot.get_file(pic_id)
         tpic.download("gpic.png")
         try:
             with open("gpic.png", "rb") as chatp:
                 context.bot.set_chat_photo(int(chat.id), photo=chatp)
-                msg.reply_text("Successfully set new chatpic!")
+                msg.reply_text("Yeni sohbet resmi başarıyla ayarlandı!")
         except BadRequest as excp:
-            msg.reply_text(f"Error! {excp.message}")
+            msg.reply_text(f"HATA! {excp.message}")
         finally:
             dlmsg.delete()
             if os.path.isfile("gpic.png"):
                 os.remove("gpic.png")
     else:
-        msg.reply_text("Reply to some photo or file to set new chat pic!")
+        msg.reply_text("Yeni sohbet resmi ayarlamak için bir fotoğrafa veya dosyaya yanıt verin!")
 
 
 @run_async
@@ -311,13 +311,13 @@ def rmchatpic(update, context):
     user = update.effective_user
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        msg.reply_text("You don't have enough rights to delete group photo")
+        msg.reply_text("Grup fotoğrafını silmek için yeterli hakkınız yok")
         return
     try:
         context.bot.delete_chat_photo(int(chat.id))
-        msg.reply_text("Successfully deleted chat's profile photo!")
+        msg.reply_text("Sohbetin profil fotoğrafı başarıyla silindi!")
     except BadRequest as excp:
-        msg.reply_text(f"Error! {excp.message}.")
+        msg.reply_text(f"HATA! {excp.message}.")
         return
 
 
@@ -332,22 +332,22 @@ def setchat_title(update, context):
     args = context.args
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        msg.reply_text("You don't have enough rights to change chat info!")
+        msg.reply_text("Sohbet bilgilerini değiştirmek için yeterli hakkınız yok!")
         return
 
     title = " ".join(args)
     if not title:
-        msg.reply_text("Enter some text to set new title in your chat!")
+        msg.reply_text("Sohbetinizde yeni başlık belirlemek için bir metin girin!")
         return
 
     try:
         context.bot.set_chat_title(int(chat.id), str(title))
         msg.reply_text(
-            f"Successfully set <b>{title}</b> as new chat title!",
+            f"<b>{title}</b> başarıyla yeni sohbet başlığı olarak ayarlandı!",
             parse_mode=ParseMode.HTML,
         )
     except BadRequest as excp:
-        msg.reply_text(f"Error! {excp.message}.")
+        msg.reply_text(f"HATA! {excp.message}.")
         return
 
 
@@ -361,27 +361,27 @@ def set_sticker(update, context):
     user = update.effective_user
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        return msg.reply_text("You're missing rights to change chat info!")
+        return msg.reply_text("Sohbet bilgilerini değiştirme haklarınız yok!")
 
     if msg.reply_to_message:
         if not msg.reply_to_message.sticker:
             return msg.reply_text(
-                "You need to reply to some sticker to set chat sticker set!"
+                "Sohbet çıkartma setini ayarlamak için bazı çıkartmalara cevap vermeniz gerekiyor!"
             )
         stkr = msg.reply_to_message.sticker.set_name
         try:
             context.bot.set_chat_sticker_set(chat.id, stkr)
             msg.reply_text(
-                f"Successfully set new group stickers in {chat.title}!")
+                f"{chat.title}'da başarıyla yeni grup çıkartmaları ayarlayın!")
         except BadRequest as excp:
             if excp.message == "Participants_too_few":
                 return msg.reply_text(
-                    "Sorry, due to telegram restrictions chat needs to have minimum 100 members before they can have group stickers!"
+                    "Üzgünüz, Telegram kısıtlamaları nedeniyle, grup çıkartmalarına sahip olabilmeleri için sohbetin en az 100 üyeye sahip olması gerekiyor!"
                 )
-            msg.reply_text(f"Error! {excp.message}.")
+            msg.reply_text(f"HATA! {excp.message}.")
     else:
         msg.reply_text(
-            "You need to reply to some sticker to set chat sticker set!")
+            "Sohbet çıkartma setini ayarlamak için bazı çıkartmaları yanıtlamanız gerekiyor!")
 
 
 @run_async
@@ -394,26 +394,26 @@ def set_desc(update, context):
     user = update.effective_user
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        return msg.reply_text("You're missing rights to change chat info!")
+        return msg.reply_text("Sohbet bilgilerini değiştirme hakkınız yok!")
 
     tesc = msg.text.split(None, 1)
     if len(tesc) >= 2:
         desc = tesc[1]
     else:
-        return msg.reply_text("Setting empty description won't do anything!")
+        return msg.reply_text("Boş açıklama ayarlamak hiçbir şey yapmaz!")
     try:
         if len(desc) > 255:
             return msg.reply_text(
-                "Description must needs to be under 255 characters!")
+                "Açıklama 255 karakterin altında olmalıdır!")
         context.bot.set_chat_description(chat.id, desc)
         msg.reply_text(
-            f"Successfully updated chat description in {chat.title}!")
+            f"{chat.title} sohbet açıklaması başarıyla güncellendi!")
     except BadRequest as excp:
         msg.reply_text(f"Error! {excp.message}.")
 
 
 def __chat_settings__(chat_id, user_id):
-    return "You are *admin*: `{}`".format(
+    return "Siz *yöneticisiniz*: `{}`".format(
         dispatcher.bot.get_chat_member(chat_id, user_id).status
         in ("administrator", "creator")
     )
@@ -454,7 +454,7 @@ def pin(update: Update, context: CallbackContext) -> str:
                 raise
         log_message = (
             f"<b>{html.escape(chat.title)}:</b>\n"
-            f"#PINNED\n"
+            f"#PIN\n"
             f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}"
         )
 
@@ -481,7 +481,7 @@ def unpin(update: Update, context: CallbackContext) -> str:
 
     log_message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
-        f"#UNPINNED\n"
+        f"#UNPIN\n"
         f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}"
     )
 
@@ -505,11 +505,11 @@ def invite(update: Update, context: CallbackContext):
             update.effective_message.reply_text(invitelink)
         else:
             update.effective_message.reply_text(
-                "I don't have access to the invite link, try changing my permissions!"
+                "Davet bağlantısına erişimim yok, izinlerimi değiştirmeyi deneyin!"
             )
     else:
         update.effective_message.reply_text(
-            "I can only give you invite links for supergroups and channels, sorry!"
+            "Size sadece süper gruplar ve kanallar için davet linkleri verebilirim, üzgünüm!"
         )
 
 
@@ -522,7 +522,7 @@ def adminlist(update, context):
     bot = context.bot
 
     if update.effective_message.chat.type == "private":
-        send_message(update.effective_message, "This command only works in Groups.")
+        send_message(update.effective_message, "Bu komut yalnızca Gruplarda çalışır.")
         return
 
     chat = update.effective_chat
@@ -531,15 +531,15 @@ def adminlist(update, context):
 
     try:
         msg = update.effective_message.reply_text(
-            "Fetching group admins...", parse_mode=ParseMode.HTML
+            "Grup yöneticileri getiriliyor...", parse_mode=ParseMode.HTML
         )
     except BadRequest:
         msg = update.effective_message.reply_text(
-            "Fetching group admins...", quote=False, parse_mode=ParseMode.HTML
+            "Grup yöneticileri getiriliyor...", quote=False, parse_mode=ParseMode.HTML
         )
 
     administrators = bot.getChatAdministrators(chat_id)
-    text = "Admins in <b>{}</b>:".format(html.escape(update.effective_chat.title))
+    text = "<b>{}</b> içindeki yöneticiler:".format(html.escape(update.effective_chat.title))
 
     bot_admin_list = []
 
@@ -549,7 +549,7 @@ def adminlist(update, context):
         custom_title = admin.custom_title
 
         if user.first_name == "":
-            name = "☠ Deleted Account"
+            name = "☠ Silinen Hesaplar"
         else:
             name = "{}".format(
                 mention_html(
@@ -565,13 +565,13 @@ def adminlist(update, context):
         # if user.username:
         #    name = escape_markdown("@" + user.username)
         if status == "creator":
-            text += "\n 👑 Creator:"
+            text += "\n 👑 Yaratıcı:"
             text += "\n<code> • </code>{}\n".format(name)
 
             if custom_title:
                 text += f"<code> ┗━ {html.escape(custom_title)}</code>\n"
 
-    text += "\n🔱 Admins:"
+    text += "\n🔱 Adminler:"
 
     custom_admin_list = {}
     normal_admin_list = []
@@ -582,7 +582,7 @@ def adminlist(update, context):
         custom_title = admin.custom_title
 
         if user.first_name == "":
-            name = "☠ Deleted Account"
+            name = "☠ Silinen Hesaplar"
         else:
             name = "{}".format(
                 mention_html(
@@ -617,7 +617,7 @@ def adminlist(update, context):
             text += "\n<code> • </code>{}".format(admin)
         text += "\n"
 
-    text += "\n🤖 Bots:"
+    text += "\n🤖 Botlar:"
     for each_bot in bot_admin_list:
         text += "\n<code> • </code>{}".format(each_bot)
 
@@ -628,20 +628,20 @@ def adminlist(update, context):
 
 
 __help__ = """
- ❍ /admins*:* list of admins in the chat
+❍ /admins*:* sohbetteki yöneticilerin listesi
 
-*Admins only:*
- ❍ /pin*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
- ❍ /unpin*:* unpins the currently pinned message
- ❍ /invitelink*:* gets invitelink
- ❍ /promote*:* promotes the user
- ❍ /demote*:* demotes the user
- ❍ /title <title here>*:* sets a custom title for an admin that the bot promoted
- ❍ /admincache*:* force refresh the admins list
- ❍ /antispam <on/off/yes/no>*:* Will toggle our antispam tech or return your current settings.
+*Yalnızca yöneticiler:*
+  ❍ /pin*:* yanıtlanan mesajı sessizce sabitler - kullanıcılara bildirim vermek için "yüksek sesle" veya "bildir" ekleyin
+  ❍ /unpin*:* şu anda sabitlenmiş mesajın sabitlemesini kaldırır
+  ❍ /invitelink*:* davet bağlantısını alır
+  ❍ /promote*:* kullanıcıyı tanıtır
+  ❍ /demote*:* kullanıcıyı indirger
+  ❍ /title <buraya başlık>*:* botun terfi ettirdiği bir yönetici için özel bir başlık ayarlar
+  ❍ /admincache*:* adminler listesini yenilemeye zorla
+  ❍ /antispam <on/off/yes/no>*:* Antispam teknolojimizi değiştirir veya mevcut ayarlarınızı döndürür.
 
-*Note:* Night Mode chats get Automatically closed at 12 am(IST)
-and Automatically openned at 6 am(IST) To Prevent Night Spams.
+*Not:* Gece Modu sohbetleri saat 12'de (IST) Otomatik olarak kapanır
+ve Gece İstenmeyen Postaları Önlemek için sabah 6'da (IST) Otomatik olarak açılır.
 
 """
 
