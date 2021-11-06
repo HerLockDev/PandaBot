@@ -99,7 +99,7 @@ def promote(update: Update, context: CallbackContext) -> str:
 
     bot.sendMessage(
         chat.id,
-        f"<b>{user_member.user.first_name veya user_id}</b> başarıyla yükseltildi!",
+        f"<b>{user_member.user.first_name or user_id}</b> başarıyla yükseltildi!",
         parse_mode=ParseMode.HTML,
     )
 
