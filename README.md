@@ -17,7 +17,7 @@ Güçlü Bir Grup Yöneticisi Botu. Telethon'da Yazıldı.
 
 •Python3 üzerinde çalışan modüler bir Telegram Python botu.
 
-• Telgrafta [GroupMenter](https://t.me/MissEmilia_Robot) olarak bulunabilir.
+• Telegramta [Emilia](https://t.me/MyEmiliaBot) olarak bulunabilir.
 
 • Alternatif olarak, beni Telegramdan bulun! (Tüm destek sorularını, daha fazla kişinin size yardımcı olabileceği destek sohbetinde saklayın.)
 
@@ -36,7 +36,7 @@ Güçlü Bir Grup Yöneticisi Botu. Telethon'da Yazıldı.
 **[Vivek](https://github.com/Vivek-TP)** ▪ **[Shameel Habeeb](https://github.com/shamilhabeebnelli)** ▪ **[Uvindu Bro](https://github.com/UvinduBro)** ▪ **[Miss-Valentina](https://github.com/Miss-Valentina)** ▪ **[Devil](https://github.com/lucifeermorningstar)** ▪ **[Anossa](https://github.com/AnossaTG)**
 
 ### Credits ❤
-<details><summary>All Credits Here</summary>
+<details><summary>Tüm Krediler Burada</summary>
 <p>
 
 **[Vivek](https://github.com/VIVEK-TP)** ▪ **[Aswin Raj](https://github.com/ASWIN-RAJ-TG)** ▪ **[Uvindu Bro](https://github.com/UvinduBro)** ▪ **[Devil](https://github.com/lucifeermorningstar)** ▪ **[Miss-Valentina](https://github.com/Miss-Valentina)** ▪ **[MashaRobot](https://github.com/Mr-Dark-Prince/MashaRoBot)** ▪ **[SaitamaRobot](https://github.com/AnimeKaizoku/SaitamaRobot)** ▪ **[WilliamButcherBot](https://github.com/thehamkercat/WilliamButcherBot)**
