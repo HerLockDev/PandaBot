@@ -25,6 +25,10 @@ async def covid(_, message):
 __help__ = """
  ❍ /covid - Covid'in Küresel İstatistiklerini Almak İçin.
   ❍ /covid <country> - Tek Bir Ülkenin İstatistiklerini Almak İçin.
+  
+  __NOT__ 
+
+API hizmeti yabancı dil. O Yüzden yapabilceğimiz bir şey yok... :(
 """
 
 __mod_name__ = "COVID"
