@@ -31,7 +31,7 @@ async def _(event):
         return
     if event.is_group:
      if not (await is_register_admin(event.input_chat, event.message.sender_id)):
-       await event.reply("🚨 Need Admin Pewer.. You can't use this command.. But you can use in my pm")
+       await event.reply("🚨 Admin @AnossaQWE Gerekiyor.. Bu komutu kullanamazsınız.. Ama benim PM'imde kullanabilirsiniz.")
        return
 
     input_str = event.pattern_match.group(1)
@@ -44,7 +44,7 @@ async def _(event):
         lan, text = input_str.split("|")
     else:
         await event.reply(
-            "Invalid Syntax\nFormat `/tts lang | text`\nFor eg: `/tts en | hello`"
+            "Geçersiz Sözdizimi\nBiçim `/tts dil | yazı`\nÖrneğin: `/tts tr | merhaba'"
         )
         return
     text = text.strip()
@@ -54,19 +54,19 @@ async def _(event):
         tts.save("k.mp3")
     except AssertionError:
         await event.reply(
-            "The text is empty.\n"
-            "Nothing left to speak after pre-precessing, "
-            "tokenizing and cleaning."
+            "Metin boş.\n"
+            "Ön işlemeden sonra konuşacak bir şey kalmadı, "
+            "Tokenleştirme ve temizleme."
         )
         return
     except ValueError:
-        await event.reply("Language is not supported.")
+        await event.reply("Dil desteklenmiyor.")
         return
     except RuntimeError:
-        await event.reply("Error loading the languages dictionary.")
+        await event.reply("Diller sözlüğü yüklenirken hata oluştu.")
         return
     except gTTSError:
-        await event.reply("Error in Google Text-to-Speech API request !")
+        await event.reply("Google Text-to-Speech API isteğinde hata oluştu!")
         return
     with open("k.mp3", "r"):
         await tbot.send_file(
