@@ -118,4 +118,4 @@ Bir ülke hakkında bilgi vereceğim
   ❍ `/country <ülke adı>`*:* Verilen ülke hakkında bilgi toplama
 """
 
-__mod_name__ = "COUNTRY"
+__mod_name__ = "ÜLKE"
