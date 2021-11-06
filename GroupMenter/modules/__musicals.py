@@ -1,4 +1,4 @@
-__mod_name__ = "MUSIC"
+__mod_name__ = "MÜZİK"
 
 __help__ = """
 ❍ /song <şarkı adı>*:* Şarkıyı mevcut en iyi kalitede yükler
