@@ -1,6 +1,6 @@
 # Emilia Menter
 
-Güçlü Bir Grup Yöneticisi Botu. Telethon'da Yazıldı.
+Güçlü Bir Grup Yöneticisi Botu. PyroTelethon'da Yazıldı.
 
 <p align="center">
   <img src="https://camo.githubusercontent.com/7de3d813162a7a7351e1fd7e969ca928b799b02489c4c95c908883fbc765dbf9/68747470733a2f2f74656c656772612e70682f66696c652f3361326435663430613066333933326335323761352e6a7067">
