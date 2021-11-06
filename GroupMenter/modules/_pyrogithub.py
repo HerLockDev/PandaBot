@@ -8,9 +8,9 @@ from GroupMenter.pyrogramee.errors import capture_err
 __mod_name__ = "GITHUB"
 
 __help__ = """
-I will give information about github profile 
+Github profili hakkında bilgi vereceğim
 
- ❍ /github <username>*:* Get information about a GitHub user.
+  ❍ /github <kullanıcı adı>*:* GitHub kullanıcısı hakkında bilgi alın.
 """
 
 @pbot.on_message(filters.command('github'))
@@ -39,17 +39,17 @@ async def github(_, message):
                 repositories = result['public_repos']
                 followers = result['followers']
                 following = result['following']
-                caption = f"""**Info Of {name}**
-**Username:** `{username}`
-**Bio:** `{bio}`
-**Profile Link:** [Here]({url})
-**Company:** `{company}`
-**Created On:** `{created_at}`
-**Repositories:** `{repositories}`
+                caption = f"""**{name} Hakkında Bilgi**
+**Kullanıcı adı:** `{username}`
+**Biyo:** "{bio}"
+**Profil Bağlantısı:** [Buradan]({url})
+**Şirket:** `{compamy}`
+**Oluşturma Tarihi:** `{created_at}`
+**Depolar:** `{repositories}`
 **Blog:** `{blog}`
-**Location:** `{location}`
-**Followers:** `{followers}`
-**Following:** `{following}`"""
+**Konum:** "{location}"
+**Takipçiler:** "{followers}"
+**Aşağıdaki:** `{following}`"""
             except Exception as e:
                 print(str(e))
                 pass
