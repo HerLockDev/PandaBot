@@ -74,7 +74,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-Selam! Benim adım Emilia.
+Selam! Benim adım Panda.
 Gruplarınızı yönetmenize yardımcı olmak için buradayım!
 
 Beni tam potansiyelime nasıl kullanacağınız hakkında daha fazla bilgi edinmek için /help'e basın.
@@ -83,11 +83,11 @@ Beni tam potansiyelime nasıl kullanacağınız hakkında daha fazla bilgi edinm
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ Grubuna Ekle ➕️", url="http://t.me/mutsuz_pandabot?startgroup=true"),
+            text="➕️ Grubuna Ekle ➕️", url="http://t.me/PandaGHelpbot?startgroup=true"),
     ],
     [
-        InlineKeyboardButton(text="🎶 Müzik Bot", url="http://t.me/Pro_xmusic_bot"),
-        InlineKeyboardButton(text="Sahip", url="https://t.me/mutsuz_panda"),
+        InlineKeyboardButton(text="🎯Support🎯", url="http://t.me/HerlockSupports"),
+        InlineKeyboardButton(text="⚡Sahip⚡", url="https://t.me/tht_herlock"),
     ],
     [
         InlineKeyboardButton(
@@ -98,7 +98,7 @@ buttons = [
 
 
 HELP_STRINGS = """
-Selam! Benim adım Emilia.
+Selam! Benim adım Panda.
 Gruplarınızı yönetmenize yardımcı olmak için buradayım!
 
 Mevcut komutlar:
@@ -361,7 +361,7 @@ def groupmenter_about_callback(update: Update, context: CallbackContext):
     query = update.callback_query
     if query.data == "groupmenter":
         query.message.edit_text(
-            text="""🤖 Ben **#Ge͂̂͝c̨͒ͤ̕͜e̡͝ k̶̴̛ͮ͌̒̃͟͡uş̟̲͎u̼͓̭̝ͦ̂͋̈̋̔**, grubunuzu kolayca yönetmenize yardımcı olmak için oluşturulmuş güçlü bir grup yönetimi botuyum.
+            text="""🤖 Ben **Panda**, grubunuzu kolayca yönetmenize yardımcı olmak için oluşturulmuş güçlü bir grup yönetimi botuyum.
                  
 ❍ Kullanıcıları kısıtlayabilirim.
                  
@@ -374,9 +374,9 @@ def groupmenter_about_callback(update: Update, context: CallbackContext):
 ❍ Bir not tutma sistemim, kara listelerim ve hatta belirli anahtar kelimelere önceden belirlenmiş yanıtlarım var.
                  
 ❍ Herhangi bir komutu ve daha fazlasını çalıştırmadan önce yöneticilerin izinlerini kontrol ederim
-                  \n_Emilia, GNU General Public License v3.0_ kapsamında lisanslanmıştır
+                  \n_Panda, GNU General Public License v3.0_ kapsamında lisanslanmıştır
                   İşte [💾Repo](https://github.com/Gecebird/gece-ku-u).
-                  Emilia hakkında herhangi bir sorunuz varsa, @AnossaninGrubu adresinden bize bildirin.""",
+                  Emilia hakkında herhangi bir sorunuz varsa @HerlockSupports adresinden bize bildirin.""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -402,7 +402,7 @@ def Source_about_callback(update: Update, context: CallbackContext):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text=""" Hi..🤗 I'm **#Ge͂̂͝c̨͒ͤ̕͜e̡͝ k̶̴̛ͮ͌̒̃͟͡uş̟̲͎u̼͓̭̝ͦ̂͋̈̋̔**
+            text=""" Hi..🤗 I'm **Panda**
                  \nİşte [Kaynak Kodu](https://github.com/Gecebird/gece-ku-u) .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=False,
